@@ -9,10 +9,21 @@
 
 <p><%=link_to "Back to restaurants lists", restaurants_path %></p>
 
-<p><%=link_to "Add a review", new_restaurant_review_path(@restaurant) %></p>
-
 <ul class="list-group">
   <% @restaurant.reviews.each do |review| %>
     <li class="list-group-item"><%= review.content %> <%= review.rating %></li>
   <% end %>
 </ul>
+
+<h2>Add a review</h2>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-4">
+      <%= simple_form_for [ @restaurant, @review ] do |f| %>
+        <%= f.input :content %>
+        <%= f.input :rating %>
+        <%= f.submit "Submit review", class: "btn btn-primary" %>
+      <% end %>
+      </div>
+    </div>
+</div>
