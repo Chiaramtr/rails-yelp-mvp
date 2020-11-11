@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="col-12">
+      <h1>All the restaurants</h1>
+        <p><%=link_to "Add a restaurant", new_restaurant_path %></p>
+          <% @restaurants.each do |restaurant| %>
+           <h2><%= link_to restaurant.name, restaurant_path(restaurant) %></h2>
+              <p> <%= restaurant.category.upcase %></p>
+              <p> <%= restaurant.address %></p>
+              <p> <%= restaurant.phone_number %></p>
+      <% end %>
+    </div>
+</div>
+

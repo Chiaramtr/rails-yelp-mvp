@@ -1,0 +1,15 @@
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <h1>Add a restaurant</h1>
+        <%= simple_form_for(@restaurant) do |f| %>
+          <%= f.input :name %>
+          <%= f.input :address %>
+          <%= f.input :phone_number %>
+          <%= f.input :category, collection: Restaurant::TYPES, as: :check_boxes %>
+          <%= f.submit "Submit restaurant", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+</div>
